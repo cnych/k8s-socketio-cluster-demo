@@ -10,7 +10,8 @@
   "dependencies": {
     "ejs": "^2.5.7",
     "express": "4.9.x",
-    "socket.io": "latest"
+    "socket.io": "latest",
+    "socket.io-redis": "^5.2.0"
   },
   "scripts": {
     "start": "DEBUG=socket.io* node index.js"

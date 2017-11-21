@@ -1,4 +1,5 @@
 const express = require('express');
+const socketRedis = require('socket.io-redis');
 const os = require('os');
 const app = express();
 const http = require('http').Server(app);
@@ -23,6 +24,7 @@ function onConnection(socket){
   socket.on('drawing', (data) => socket.broadcast.emit('drawing', data));
 }
 
+io.adapter(socketRedis({host: 'redis', port: 6379}));
 io.on('connection', onConnection);
 
 http.listen(port, () => console.log('listening on port ' + port));
