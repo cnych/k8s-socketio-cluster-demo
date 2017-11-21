@@ -1,0 +1,20 @@
+{
+  "name": "whiteboard",
+  "version": "1.0.0",
+  "description": "A simple collaborative whiteboard using socket.io",
+  "main": "index.js",
+  "keywords": [
+    "socket.io",
+    "whiteboard"
+  ],
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "4.9.x",
+    "socket.io": "latest"
+  },
+  "scripts": {
+    "start": "DEBUG=socket.io* node index.js"
+  },
+  "author": "Damien Arrachequesne",
+  "license": "MIT"
+}

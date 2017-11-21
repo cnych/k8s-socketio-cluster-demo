@@ -1,0 +1,9 @@
+{
+    "apps": [{
+      "name": "socketdemo",
+      "script": "index.js",
+      "env": {
+        "NODE_ENV": "test"
+      }
+    }]
+  }

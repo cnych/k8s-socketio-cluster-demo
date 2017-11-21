@@ -1,0 +1,43 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: socket-demo
+  labels:
+    k8s-app: socket-demo
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        k8s-app: socket-demo
+    spec:
+      containers:
+        - image: cnych/socketdemo:k8s
+          imagePullPolicy: Always
+          name: socketdemo
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 100m
+              memory: 100Mi
+            requests:
+              cpu: 50m
+              memory: 50Mi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: socket-demo
+  labels:
+    k8s-app: socket-demo
+spec:
+  ports:
+    - name: socketio
+      port: 80
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    k8s-app: socket-demo
